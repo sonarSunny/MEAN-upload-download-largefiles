@@ -1,0 +1,16 @@
+<div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="onDrop($event)">
+  <input hidden type="file" #fileInput (change)="onFileChange($event)">
+</div>
+<div  class="files-list" *ngFor="let file of files;let i=index">
+  <p>{{ file }}</p>
+  <button class="delete-file" (click)="resetForm()">
+    <img src="../../assets/Recycle_Bin_Full.png">
+  </button>
+</div>
+<div>
+  <button class="uploadButton" (click)="uploadFile()">Upload File</button>
+  <p class="successMessage" *ngIf="successMsg">{{successMsg}}</p>
+</div>
+<div>
+  <button class="uploadButton" (click)="downloadFile()">Download File</button>
+</div>
