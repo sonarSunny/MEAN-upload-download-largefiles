@@ -46,7 +46,7 @@ console.log(apidata.length)
     // console.log(csv)
     res.set('Content-Type', 'text/csv');
     res.setHeader('Content-Disposition', 'attachment; filename=data.csv');
-    return res.send(csv)
+    return res.send(csv);
   })
   .catch(err => {
     // console.error(err)

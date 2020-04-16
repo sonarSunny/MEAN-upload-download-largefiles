@@ -12,6 +12,6 @@ export class UploadfileService {
   }
 
   getFiles(){
-    return this.http.get('http://localhost:3000/api/process-file');
+    return this.http.get('http://localhost:3000/api/process-file',{responseType: 'json'});
   }
 }

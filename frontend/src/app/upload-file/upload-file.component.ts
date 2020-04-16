@@ -1,5 +1,7 @@
 import { Component} from '@angular/core';
 import { UploadfileService } from '../services/uploadfile.service';
+import { NgxUiLoaderService } from 'ngx-ui-loader'; 
+
 
 @Component({
   selector: 'app-upload-file',
@@ -7,7 +9,8 @@ import { UploadfileService } from '../services/uploadfile.service';
   styleUrls: ['./upload-file.component.css']
 })
 export class UploadFileComponent  {
-  constructor(public uploadService:UploadfileService){}
+  constructor(public uploadService:UploadfileService,
+              public ngxService: NgxUiLoaderService){}
   files: any = [];
   fileData:any=[];
   showDownloadButton:Boolean;
@@ -22,11 +25,13 @@ export class UploadFileComponent  {
 
   uploadFile(){
     if(this.fileData.length>0){
+      this.ngxService.start();
       var formdata = new FormData;
       formdata.append('uploadfile',this.fileData[0]);
       console.log(formdata); 
       this.uploadService.uploadFile(formdata).subscribe((res:any)=>{
         console.log(res);
+        this.ngxService.stop();
         this.resetForm();
         this.successMsg="File uploadd successfully!!";
         setTimeout(()=>{
@@ -40,12 +45,13 @@ export class UploadFileComponent  {
   }
 
   downloadFile(){
-    this.uploadService.getFiles().subscribe((res:any)=>{
+    window.open('http://localhost:3000/api/process-file');
+   /*  this.uploadService.getFiles().subscribe((res:any)=>{
       console.log(res);
       
     },(err:any)=>{
       console.log(err);
-    })
+    }) */
   } 
   onDrop(file){
     this.resetForm();

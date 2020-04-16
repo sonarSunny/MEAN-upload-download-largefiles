@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { DragDropDirective } from './drag-drop.directive';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { ExcelService } from './services/excel.service';
+import { NgxUiLoaderModule } from  'ngx-ui-loader';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import { ExcelService } from './services/excel.service';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxUiLoaderModule
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [ExcelService],

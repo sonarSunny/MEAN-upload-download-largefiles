@@ -9,6 +9,8 @@
 </div>
 <div>
   <button class="uploadButton" (click)="uploadFile()">Upload File</button>
+  <ngx-ui-loader></ngx-ui-loader>
+
   <p class="successMessage" *ngIf="successMsg">{{successMsg}}</p>
 </div>
 <div>
