@@ -4,7 +4,7 @@ const cors = require("cors");
 const multer = require('multer');
 const mongoose = require("mongoose");
 const app = express();
-const connection = mongoose.connect('mongodb://localhost:27017/myapp', {useNewUrlParser: true});
+const connection = mongoose.connect('mongodb://localhost:27017/myapp1', {useNewUrlParser: true});
 const router = express.Router();
 const fileRoute = require('./routes/fileData');
 //upload

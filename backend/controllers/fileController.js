@@ -24,7 +24,7 @@ module.exports.processFile =(req,res)=>{
                  Promise.map(chunk_array,(userdata)=>{
                     return processRecord(userdata)
                  },{concurrency:20}).then(()=>{
-                    fs.unlinkSync('uploads/user.json')
+                  //  fs.unlinkSync('uploads/user.json')
                      return res.json('uploaded');
                  }).catch((err)=>{
                      console.log(err);
